@@ -1,0 +1,20 @@
+<project>
+	<target name="clean">
+		<!--Wipe out the deployed server instance-->
+		<delete dir="/var/lib/jenkins/server/battleship"/>
+	</target>
+	
+	<target name="test">
+	
+	</target>
+	
+	<target name="deploy">
+		<!--Copy the cloned down server unto the production area-->
+		<mkdir dir="/var/lib/jenkins/server/battleship"/>
+		<copy todir="/var/lib/jenkins/server/battleship">
+			<fileset dir="/var/lib/jenkins/battleship_workspace">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+	</target>
+</project>
