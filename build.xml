@@ -1,4 +1,11 @@
 <project>
+	<target name="install">
+		<!--run "npm install"-->
+		<exec executable="npm">
+			<arg value="install"/>
+		</exec>
+	</target>
+
 	<target name="clean">
 		<!--Wipe out the deployed server instance-->
 		<delete dir="/var/lib/jenkins/server/battleship"/>
