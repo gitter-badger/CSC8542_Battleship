@@ -1,0 +1,13 @@
+{
+    "name": "battleship",
+    "main": "server.js",
+	"repository" :
+	{ 
+		"type" : "git",
+		"url" : "https://github.com/redsoxfantom/CSC8542_Battleship"
+	},
+    "dependencies": 
+	{
+		
+    }
+}
