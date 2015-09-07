@@ -1,0 +1,6 @@
+#
+# Ignore file for git
+# 
+
+# Ignore npm-created dependency folder
+node_modules/
