@@ -1,11 +1,10 @@
-var sys = require("sys"),
-my_http = require("http");
+var app = require('express')();
+var http = require('http').Server(app);
 
-my_http.createServer(function(request,response){
-    sys.puts("I got kicked");
-    response.writeHeader(200, {"Content-Type": "text/plain"});
-    response.write("Server is running");
-    response.end();
-}).listen(12102);
+app.get('/', function(req, res){
+	res.send('<h1>Hello World</h1>');
+})
 
-sys.puts("Server Running on 12102"); 
+http.listen(12102, function(){
+	console.log('listening on 12102');
+})
