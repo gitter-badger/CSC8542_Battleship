@@ -1,11 +1,24 @@
-var sys = require("sys"),
-my_http = require("http");
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http)
 
-my_http.createServer(function(request,response){
-    sys.puts("I got kicked");
-    response.writeHeader(200, {"Content-Type": "text/plain"});
-    response.write("Server is running");
-    response.end();
-}).listen(12102);
+app.get('/', function(req, res){
+	res.sendFile(__dirname + '/views/index.html');
+})
 
-sys.puts("Server Running on 12102"); 
+io.on('connection', function(socket){
+	console.log('a user connected');
+	
+	socket.on('disconnect', function(){
+		console.log('user disconnected');
+	});
+	
+	socket.on('chat message', function(msg){
+		console.log('message: ' + msg);
+		io.emit('chat message', msg);
+	});
+})
+
+http.listen(12102, function(){
+	console.log('listening on 12102');
+})
