@@ -89,8 +89,10 @@ module.exports = function(app, passport) {
     });
 	
 	// Handle the chat
-	app.get('/chat', function(req, res){
-		res.render('chat.ejs');
+	app.get('/chat', isLoggedIn, function(req, res){
+		res.render('chat.ejs', {
+			id : req.user.local.email
+		});
 	})
 };
 
