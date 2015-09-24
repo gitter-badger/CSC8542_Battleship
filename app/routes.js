@@ -90,7 +90,7 @@ module.exports = function(app, passport) {
 	
 	// Handle the chat
 	app.get('/chat', function(req, res){
-		res.sendFile(__dirname + '/views/index.html');
+		res.render('chat.ejs');
 	})
 };
 
