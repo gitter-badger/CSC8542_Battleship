@@ -13,6 +13,9 @@
 	
 	<target name="test">
 		<!--Unit test stuff goes here-->
+		<exec executable="bootlint" failonerror="true">
+			<arg value="views/*"/>
+		</exec>
 	</target>
 	
 	<target name="deploy">
