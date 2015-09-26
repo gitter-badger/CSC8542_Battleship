@@ -39,18 +39,8 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
-io.on('connection', function(socket){
-	console.log('a user connected');
-	
-	socket.on('disconnect', function(){
-		console.log('user disconnected');
-	});
-	
-	socket.on('chat message', function(msg){
-		console.log('message: ' + msg);
-		io.emit('chat message', msg);
-	});
-})
+// socket.io ===================================================================
+require('./app/socket.js')(io) // Load the socket io callbacks, pass in socket.io object
 
 // launch ======================================================================
 http.listen(12102, function(){
