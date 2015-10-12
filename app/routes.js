@@ -93,7 +93,11 @@ module.exports = function(app, passport) {
 		res.render('chat.ejs', {
 			id : req.user.local.email
 		});
-	})
+	});
+	
+	app.get('/battleship', function(req,res){
+		res.render('battleship.ejs');
+	});
 };
 
 // route middleware to make sure a user is logged in
