@@ -26,9 +26,9 @@
 	  
 	  socket.on('user login', function(msg){
 		$('#chatPartners').empty();
-		for(idx = 0; idx < msg.partners.length; idx++)
+		for(idx = 0; idx < msg.length; idx++)
 		{
-			$('#chatPartners').append($('<li>').html(msg.partners[idx]));
+			$('#chatPartners').append($('<li>').html(msg[idx]));
 		}
 	  });
 	</script>

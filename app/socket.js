@@ -1,5 +1,7 @@
 // app/socket.js
 
+var connectedUsers = [];
+
 module.exports = function(io)
 {
 	io.on('connection', function(socket){
@@ -7,6 +9,8 @@ module.exports = function(io)
 		
 		socket.on('username registration', function(username){
 			console.log('Username registered: ' + username)
+			connectedUsers.push(username);
+			io.emit('user login',connectedUsers)
 		});
 		
 		socket.on('disconnect', function(){
