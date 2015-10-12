@@ -97,7 +97,9 @@ module.exports = function(app, passport) {
 	
 	// Handle giving the user a list of people to chat with
 	app.get('/selectChat', isLoggedIn, function(req,res){
-		res.render('selectChat.ejs');
+		res.render('selectChat.ejs', {
+			id : req.user.local.email
+		});
 	});
 	
 	// Handle the game
