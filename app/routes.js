@@ -37,7 +37,7 @@ module.exports = function(app, passport) {
 
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/chat', // redirect to the secure profile section
+        successRedirect : '/selectChat', // redirect to the secure profile section
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
@@ -95,6 +95,12 @@ module.exports = function(app, passport) {
 		});
 	});
 	
+	// Handle giving the user a list of people to chat with
+	app.get('/selectChat', isLoggedIn, function(req,res){
+		res.render('selectChat.ejs');
+	});
+	
+	// Handle the game
 	app.get('/battleship', function(req,res){
 		res.render('battleship.ejs');
 	});
