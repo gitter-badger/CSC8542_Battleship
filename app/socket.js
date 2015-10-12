@@ -1,6 +1,7 @@
 // app/socket.js
 
-var connectedUsers = [];
+// load up the user model
+var User = require('models/user');
 
 module.exports = function(io)
 {
@@ -9,7 +10,7 @@ module.exports = function(io)
 		
 		socket.on('username registration', function(username){
 			console.log('Username registered: ' + username)
-			connectedUsers.push(username);
+			
 			io.emit('user login',connectedUsers)
 		});
 		
