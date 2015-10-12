@@ -15,7 +15,7 @@
 		<!--Unit test stuff goes here-->
 		<exec executable="bootlint" failonerror="true">
 			<arg value="-d"/>
-			<arg value="W005"/>
+			<arg value="W005,W009"/>
 			<arg value="views/*"/>
 		</exec>
 	</target>
