@@ -22,7 +22,7 @@
 	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 	<script>
 	  var socket = io();
-	  socket.emit('username registration',{'<%= id %>'});
+	  socket.emit('username registration','<%= id %>');
 	  
 	  socket.on('user login', function(msg){
 		$('#chatPartners').empty();
