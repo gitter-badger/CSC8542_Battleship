@@ -1,7 +1,7 @@
 // app/socket.js
 
 // load up the user model
-var User = require('models/user');
+var User = require('./models/user');
 
 module.exports = function(io)
 {

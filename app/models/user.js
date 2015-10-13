@@ -16,8 +16,7 @@ var userSchema = mongoose.Schema({
         email        : String,
         name         : String
     },
-	username,
-	isLoggedIn
+	IsLoggedIn		 : Boolean
 });
 
 // methods ======================
