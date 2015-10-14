@@ -70,6 +70,7 @@ module.exports = function(passport) {
                 newUser.local.email    = email;
 				newUser.username 	   = email;
                 newUser.local.password = newUser.generateHash(password);
+				newUser.IsLoggedIn	   = true;
 
                 // save the user
                 newUser.save(function(err) {
@@ -112,7 +113,9 @@ module.exports = function(passport) {
             // if the user is found but the password is wrong
             if (!user.validPassword(password))
                 return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
-
+			
+			
+			
             // all is well, return successful user
             return done(null, user);
         });
@@ -157,6 +160,7 @@ module.exports = function(passport) {
                     newUser.facebook.token = token; // we will save the token that facebook provides to the user                    
                     newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
 					newUser.username 	   = email;
+					newUser.IsLoggedIn	   = true;
 
                     // save our user to the database
                     newUser.save(function(err) {
