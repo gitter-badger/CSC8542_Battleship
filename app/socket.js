@@ -11,7 +11,11 @@ module.exports = function(io)
 		socket.on('username registration', function(username){
 			console.log('Username registered: ' + username)
 			
-			io.emit('user login',connectedUsers)
+			// Get all logged in users
+			User.find({'IsLoggedIn' : true},"username",function(err,docs){
+				connectedUsers = docs;
+				io.emit('user login',connectedUsers);
+			});
 		});
 		
 		socket.on('disconnect', function(){
