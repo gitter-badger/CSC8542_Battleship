@@ -28,7 +28,7 @@
 		$('#chatPartners').empty();
 		for(idx = 0; idx < msg.length; idx++)
 		{
-			$('#chatPartners').append($('<li>').html(msg[idx]));
+			$('#chatPartners').append($('<li>').html(msg[idx].username));
 		}
 	  });
 	</script>
