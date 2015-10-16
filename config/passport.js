@@ -113,7 +113,10 @@ module.exports = function(passport) {
             if (!user.validPassword(password))
                 return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
 			
-			
+			user.IsLoggedIn = true;
+			user.save(function(err, doc){
+				console.log(user.username + ' has logged in');
+			});
 			
             // all is well, return successful user
             return done(null, user);
@@ -149,6 +152,11 @@ module.exports = function(passport) {
 
                 // if the user is found, then log them in
                 if (user) {
+					user.IsLoggedIn = true;
+					user.save(function(err, doc){
+						console.log(user.username + ' has logged in');
+					});
+					
                     return done(null, user); // user found, return that user
                 } else {
                     // if there is no user found with that facebook id, create them
