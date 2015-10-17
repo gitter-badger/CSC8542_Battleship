@@ -29,8 +29,6 @@
 	<script>
 	  var socket = io();
 	  
-	  console.log("hello world")
-	  
 	  $('form').submit(function(){
 		socket.emit('chat message', '<strong><%= id %></strong>: '+ $('#m').val());
 		$('#m').val('');
