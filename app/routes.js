@@ -74,13 +74,6 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 	
-	// Handle the chat
-	app.get('/chat', isLoggedIn, function(req, res){
-		res.render('chat.ejs', {
-			id : req.user.username
-		});
-	});
-	
 	// Handle giving the user a list of people to chat with
 	app.get('/selectChat', isLoggedIn, function(req,res){
 		res.render('selectChat.ejs', {
