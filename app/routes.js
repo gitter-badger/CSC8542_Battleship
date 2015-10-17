@@ -90,7 +90,9 @@ module.exports = function(app, passport) {
 	
 	// Handle the game
 	app.get('/battleship', isLoggedIn, function(req,res){
-		res.render('battleship.ejs');
+		res.render('battleship.ejs', {
+			id : req.user.username
+		});
 	});
 };
 
