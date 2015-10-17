@@ -77,19 +77,19 @@ module.exports = function(app, passport) {
 	// Handle the chat
 	app.get('/chat', isLoggedIn, function(req, res){
 		res.render('chat.ejs', {
-			id : req.user.local.email
+			id : req.user.username
 		});
 	});
 	
 	// Handle giving the user a list of people to chat with
 	app.get('/selectChat', isLoggedIn, function(req,res){
 		res.render('selectChat.ejs', {
-			id : req.user.local.email
+			id : req.user.username
 		});
 	});
 	
 	// Handle the game
-	app.get('/battleship', function(req,res){
+	app.get('/battleship', isLoggedIn, function(req,res){
 		res.render('battleship.ejs');
 	});
 };
