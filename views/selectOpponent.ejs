@@ -30,7 +30,12 @@
 		$('#Opponents').empty();
 		for(idx = 0; idx < msg.length; idx++)
 		{
-			$('#Opponents').append($('<li>').html(msg[idx].username));
+			var username = msg[idx].username;
+			var profileLink = "(<a href='/profile/"+username+"'>profile</a>)";
+			var challengeLink = "(<a href='/challenge/"+username+"'>challenge</a>)";
+			var finalHtml = username + " " + profileLink + " " + challengeLink;
+			
+			$('#Opponents').append($('<li>').html(finalHtml));
 		}
 	  });
 	</script>
