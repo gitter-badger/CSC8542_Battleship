@@ -13,9 +13,9 @@
   </head>
   <body>
 	<center>
-		<h1>Select Chat Partner</h1>
+		<h1>Select Opponent</h1>
 	
-		<ul id="chatPartners"></ul>
+		<ul id="Opponents"></ul>
 	</center>
 	
 	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
@@ -25,10 +25,10 @@
 	  socket.emit('username registration','<%= id %>');
 	  
 	  socket.on('user login', function(msg){
-		$('#chatPartners').empty();
+		$('#Opponents').empty();
 		for(idx = 0; idx < msg.length; idx++)
 		{
-			$('#chatPartners').append($('<li>').html(msg[idx].username));
+			$('#Opponents').append($('<li>').html(msg[idx].username));
 		}
 	  });
 	</script>
