@@ -88,7 +88,7 @@ module.exports = function(app, passport) {
 		});
 	});
 	
-	app.get('/singlePlayer' isLoggedIn, function(req,res){
+	app.get('/singlePlayer', isLoggedIn, function(req,res){
 		res.render('battleship.ejs', {
 			id : req.user.username
 		});		
