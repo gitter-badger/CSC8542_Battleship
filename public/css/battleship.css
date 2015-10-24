@@ -14,11 +14,17 @@
 	border: 1px solid black;
     float:left;
     position: relative;
-    width: 5%;
-    padding-bottom : 5%; /* = width for a 1:1 aspect ratio */
+    overflow:hidden;
+	width: 5%;
+    padding-bottom : 5%;
     margin:0.25%;
-    background-position:center center;
-    background-repeat:no-repeat;
+}
+
+.content {
+    position:absolute;
+    height:90%; /* = 100% - 2*5% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 5%;
 }
 
 
