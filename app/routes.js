@@ -1,6 +1,5 @@
 // app/routes.js
-var Player1Grid = require('./gridGenerator')
-var Player2Grid = require('./gridGenerator')
+var gridGen = require('./gridGenerator')
 
 module.exports = function(app, passport) {
 
@@ -91,7 +90,11 @@ module.exports = function(app, passport) {
 		});
 	});
 	
+	// Handle a single player game
 	app.get('/singlePlayer', isLoggedIn, function(req,res){
+		var Player1Grid = gridGen.createGrid();
+		var Player2Grid = gridGen.createGrid();
+		
 		res.render('battleship.ejs', {
 			id : req.user.username
 		});		
