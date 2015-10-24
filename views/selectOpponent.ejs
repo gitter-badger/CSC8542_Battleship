@@ -18,7 +18,7 @@
 		<h1>Select Opponent</h1>
 	
 		<ul id="Opponents">
-			<li>Single Player <a href="/singlePlayer">(challenge)</a></li>
+			<li>Single Player Game <a href="/singlePlayer">(challenge)</a></li>
 		</ul>
 	</center>
 	
@@ -30,6 +30,10 @@
 	  
 	  socket.on('user login', function(msg){
 		$('#Opponents').empty();
+		
+		var singlePlayerChallange = "Single Player Game <a href="/singlePlayer">(challenge)</a>"
+		$('#Opponents').append($('<li>').html(finalHtml));
+		
 		for(idx = 0; idx < msg.length; idx++)
 		{
 			var username = msg[idx].username;
