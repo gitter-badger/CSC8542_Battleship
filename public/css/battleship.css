@@ -1,4 +1,5 @@
 .gamesquare {
+	border: 1px solid black;
     float:left;
     position: relative;
     width: 5%;
@@ -7,10 +8,10 @@
     background-position:center center;
     background-repeat:no-repeat;
 	background-color:red;
-    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
 }
 
 .square {
+	border: 1px solid black;
     float:left;
     position: relative;
     width: 5%;
@@ -18,7 +19,6 @@
     margin:0.25%;
     background-position:center center;
     background-repeat:no-repeat;
-    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
 }
 
 
