@@ -92,8 +92,8 @@ module.exports = function(app, passport) {
 	
 	// Handle a single player game
 	app.get('/singlePlayer', isLoggedIn, function(req,res){
-		var Player1Grid = gridGen.createGrid();
-		var Player2Grid = gridGen.createGrid();
+		var playerGrid = gridGen.createGrid();
+		var computerGrid = gridGen.createGrid();
 		
 		res.render('battleship.ejs', {
 			id : req.user.username
