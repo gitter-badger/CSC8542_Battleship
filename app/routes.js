@@ -87,6 +87,7 @@ module.exports = function(app, passport) {
 			id : req.user.username
 		});
 	});
+	
 };
 
 // route middleware to make sure a user is logged in
