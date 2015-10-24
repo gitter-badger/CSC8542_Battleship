@@ -1,4 +1,7 @@
 // app/routes.js
+var Player1Grid = require('./gridGenerator')
+var Player2Grid = require('./gridGenerator')
+
 module.exports = function(app, passport) {
 
     // =====================================
