@@ -88,6 +88,9 @@ module.exports = function(app, passport) {
 		});
 	});
 	
+	app.get('/singlePlayer' isLoggedIn, function(req,res){
+		
+	});
 };
 
 // route middleware to make sure a user is logged in
