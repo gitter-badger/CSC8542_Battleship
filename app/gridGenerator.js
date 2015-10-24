@@ -4,6 +4,12 @@ var gameGrid = function(){};
 gameGrid.prototype.createGrid = function(){
 	console.log('Creating Grid');
 	
+	aircraft_carrier = Ship("Aircraft Carrier",5);
+	battleship = Ship("Battleship",4);
+	cruiser = Ship("Cruiser",3);
+	submarine = Ship("Submarine",3);
+	patrol_boat = Ship("Patrol Boat",2);
+	
 	return {};
 };
 
@@ -36,6 +42,8 @@ var Ship = function(name,length){
 	}
 	
 	this.direction = possibleDirections[Math.floor(Math.random()*possibleDirections.length)];
+	
+	console.log(name+": length: "+length+" ("+pos_x+","+pos_y+"), "+direction);
 }
 
 module.exports = new gameGrid();
