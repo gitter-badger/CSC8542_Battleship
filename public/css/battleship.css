@@ -1,4 +1,4 @@
-.square {
+.gamesquare {
     float:left;
     position: relative;
     width: 5%;
@@ -9,6 +9,18 @@
 	background-color:red;
     background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
 }
+
+.square {
+    float:left;
+    position: relative;
+    width: 5%;
+    padding-bottom : 5%; /* = width for a 1:1 aspect ratio */
+    margin:0.25%;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+}
+
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
