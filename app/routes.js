@@ -83,20 +83,15 @@ module.exports = function(app, passport) {
 		});
 	});
 	
-	// Handle the game
-	app.get('/battleship', isLoggedIn, function(req,res){
-		res.render('battleship.ejs', {
-			id : req.user.username
-		});
-	});
-	
 	// Handle a single player game
 	app.get('/singlePlayer', isLoggedIn, function(req,res){
 		var playerGrid = gridGen.createGrid();
 		var computerGrid = gridGen.createGrid();
 		
 		res.render('battleship.ejs', {
-			id : req.user.username
+			id : req.user.username,
+			opponent : computerGrid,
+			player : playerGrid
 		});		
 	});
 };
