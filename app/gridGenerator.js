@@ -10,7 +10,13 @@ gameGrid.prototype.createGrid = function(){
 	submarine = Ship("Submarine",3);
 	patrol_boat = Ship("Patrol Boat",2);
 	
-	return {};
+	return {
+		"aircraft_carrier" : aircraft_carrier,
+		"battleship" : battleship,
+		"cruiser" : cruiser,
+		"submarine" : submarine,
+		"patrol_boat" : patrol_boat
+		};
 };
 
 var Ship = function(name,length){
