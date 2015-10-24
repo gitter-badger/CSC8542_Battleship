@@ -16,10 +16,12 @@
   <body>
 	<center>
 		<h1>Select Opponent</h1>
-	
+		
 		<ul id="Opponents">
 			<li>Single Player Game <a href="/singlePlayer">(challenge)</a></li>
 		</ul>
+		
+		<ul id="Opponents" class="RefreshableClientList"></ul>
 	</center>
 	
 	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
@@ -29,11 +31,7 @@
 	  socket.emit('username registration','<%= id %>');
 	  
 	  socket.on('user login', function(msg){
-		$('#Opponents').empty();
-		
-		var singlePlayerChallange = "Single Player Game <a href="/singlePlayer">(challenge)</a>"
-		$('#Opponents').append($('<li>').html(finalHtml));
-		
+		$('.RefreshableClientList').empty();		
 		for(idx = 0; idx < msg.length; idx++)
 		{
 			var username = msg[idx].username;
@@ -41,7 +39,7 @@
 			var challengeLink = "(<a href='/challenge/"+username+"'>challenge</a>)";
 			var finalHtml = username + " " + profileLink + " " + challengeLink;
 			
-			$('#Opponents').append($('<li>').html(finalHtml));
+			$('.RefreshableClientList').append($('<li>').html(finalHtml));
 		}
 	  });
 	</script>
