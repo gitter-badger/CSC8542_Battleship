@@ -34,6 +34,8 @@ var Ship = function(name,length){
 		console.log("Adding down to "+name);
 		possibleDirections.push("down");
 	}
+	
+	this.direction = possibleDirections[Math.floor(Math.random()*possibleDirections.length)];
 }
 
 module.exports = new gameGrid();
