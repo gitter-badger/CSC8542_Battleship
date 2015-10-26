@@ -25,6 +25,8 @@
 			<div class="page-header text-center">
 				<h3>Opponent's Grid</h3>
 			</div>
+			
+			<ul id="OpponentShips"/>
 		
 			<div class="row show-grid">
 				<div class="col-xs-1 square"></div>
@@ -173,6 +175,8 @@
 			<div class="page-header text-center">
 				<h3>Your Grid</h3>
 			</div>
+			
+				<ul id="YourShips"/>
 			
 			<div class="row show-grid">
 				<div class="col-xs-1 square"></div>
@@ -349,13 +353,16 @@
 	</script>
 	
 	<script>
-		var opponentGrid = <%=opponent%>;
-		var playerGrid = <%=player%>;
+		var opponentGrid = JSON.parse(<%=opponent%>);
+		var playerGrid = JSON.parse(<%=player%>);
 		
 		$( document ).ready(function() {
 			// color the player's squares
-			var ship = playerGrid.aircraft_carrier;
-			
+			for(i = 0; i < playerGrid.shiplist.length; i++)
+			{
+				var ship = playerGrid.shiplist[i];
+				$('#PlayerShips').append($('<li>').text(ship.name));
+			}
 		});
 	</script>
 	
