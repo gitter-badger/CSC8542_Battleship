@@ -4,26 +4,28 @@ var gameGrid = function(){};
 gameGrid.prototype.createGrid = function(){
 	console.log('Creating Grid');
 	
-	aircraft_carrier = Ship("Aircraft Carrier",5);
-	battleship = Ship("Battleship",4);
-	cruiser = Ship("Cruiser",3);
-	submarine = Ship("Submarine",3);
-	patrol_boat = Ship("Patrol Boat",2);
+	_aircraft_carrier = Ship("Aircraft Carrier",5);
+	_battleship = Ship("Battleship",4);
+	_cruiser = Ship("Cruiser",3);
+	_submarine = Ship("Submarine",3);
+	_patrol_boat = Ship("Patrol Boat",2);
 	
-	return {
-		"aircraft_carrier" : aircraft_carrier,
-		"battleship" : battleship,
-		"cruiser" : cruiser,
-		"submarine" : submarine,
-		"patrol_boat" : patrol_boat
+	var result = {
+		"aircraft_carrier" : _aircraft_carrier,
+		"battleship" : _battleship,
+		"cruiser" : _cruiser,
+		"submarine" : _submarine,
+		"patrol_boat" : _patrol_boat
 		};
+	
+	return result;
 };
 
-var Ship = function(name,length){
-	this.name = name;
-	this.length = length;
-	this.pos_x = Math.floor((Math.random() * 10) + 1);
-	this.pos_y = Math.floor((Math.random() * 10) + 1);
+function Ship(name,length){
+	name = name;
+	length = length;
+	pos_x = Math.floor((Math.random() * 10) + 1);
+	pos_y = Math.floor((Math.random() * 10) + 1);
 	
 	var possibleDirections = [];
 	if(!((pos_x - length) < 0))
@@ -43,9 +45,11 @@ var Ship = function(name,length){
 		possibleDirections.push("down");
 	}
 	
-	this.direction = possibleDirections[Math.floor(Math.random()*possibleDirections.length)];
+	direction = possibleDirections[Math.floor(Math.random()*possibleDirections.length)];
 	
 	console.log(name+": length: "+length+" ("+pos_x+","+pos_y+"), "+direction);
+	
+	return {"name":name,"length":length,"pos_x":pos_x,"pos_y":pos_y,"direction":direction};
 }
 
 module.exports = new gameGrid();
