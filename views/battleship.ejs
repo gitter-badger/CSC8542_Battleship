@@ -353,8 +353,8 @@
 	</script>
 	
 	<script>
-		var opponentGrid = JSON.parse(<%=opponent%>);
-		var playerGrid = JSON.parse(<%=player%>);
+		var opponentGrid =<%-JSON.stringify(opponent)%>;
+		var playerGrid =<%-JSON.stringify(player)%>;
 		
 		$( document ).ready(function() {
 			// color the player's squares

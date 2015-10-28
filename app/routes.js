@@ -90,8 +90,8 @@ module.exports = function(app, passport) {
 		
 		res.render('battleship.ejs', {
 			id : req.user.username,
-			opponent : JSON.stringify(computerGrid),
-			player : JSON.stringify(playerGrid)
+			opponent : computerGrid,
+			player : playerGrid
 		});		
 	});
 };
