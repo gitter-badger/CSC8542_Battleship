@@ -1,6 +1,21 @@
 // Creates a game grid
 var gameGrid = function(){};
 
+// Ship positions is a 2-d array of the current status of the grid
+// It is used to keep track of where ships have been placed and reject
+// any ship locations that would intersect. 
+// "false" = there are no ships in this square
+// "true" = there is a ship in this square
+var shipPositions = new Array(10);
+for (var x = 0; x < 10; x++) 
+{
+  shipPositions[x] = new Array(10);
+  for (var y = 0; y < 10; y++)
+  {
+	  shipPositions[x][y] = false;
+  }
+}
+
 gameGrid.prototype.createGrid = function(){
 	console.log('Creating Grid');
 	
@@ -56,6 +71,12 @@ function Ship(name,length){
 			pos_x:_pos_x,
 			pos_y:_pos_y,
 			direction:_direction};
+}
+
+// Checks a ship's start and end locations against the game grid
+function validateLocation(start_x, start_y, end_x, end_y)
+{
+	
 }
 
 module.exports = new gameGrid();
