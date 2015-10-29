@@ -47,24 +47,25 @@ function Ship(name,length){
 	var possibleDirections = [];
 	if(!((_pos_x - length) < 0) && isValidLocation(_pos_x,_pos_y,pos_x-length,_pos_y))
 	{
-		possibleDirections.push("left");
+		possibleDirections.push({dir:"left",end_x:_pos_x-length,end_y:_pos_y});
 	}
 	if(!((_pos_x + length) > 10) && isValidLocation(_pos_x,_pos_y,pos_x+length,_pos_y))
 	{
-		possibleDirections.push("right");
+		possibleDirections.push({dir:"right",end_x:_pos_x+length,end_y:_pos_y});
 	}
 	if(!((_pos_y - length) < 0) && isValidLocation(_pos_x,_pos_y,pos_x,_pos_y-length))
 	{
-		possibleDirections.push("up");
+		possibleDirections.push({dir:"up",end_x:_pos_x,end_y:_pos_y-length});
 	}
 	if(!((_pos_y + length) > 10) && isValidLocation(_pos_x,_pos_y,pos_x,_pos_y+length))
 	{
-		possibleDirections.push("down");
+		possibleDirections.push({dir:"down",end_x:_pos_x,end_y:_pos_y+length});
 	}
 	
 	_direction = possibleDirections[Math.floor(Math.random()*possibleDirections.length)];
 	
-	console.log(_name+": length: "+_length+" ("+_pos_x+","+_pos_y+"), "+_direction);
+	console.log(_name+": length: "+_length+" ("+_pos_x+","+_pos_y+"), "+_direction.dir);
+	fillLocation(_pos_x,_pos_y,_direction.end_x,_direction.end_y);
 	
 	return {name:_name,
 			length:_length,
