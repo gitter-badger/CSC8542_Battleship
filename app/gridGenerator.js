@@ -73,6 +73,35 @@ function Ship(name,length){
 			direction:_direction};
 }
 
+// Fill a ship's location in the shipGrid
+function fillLocation(start_x, start_y, end_x, end_y)
+{
+	curr_x = start_x;
+	curr_y = start_y;
+	while(curr_x != end_x && curr_y != end_y)
+	{
+		shipPositions[curr_x][curr_y] = true
+		
+		// Change the grid location we are checking against
+		if(curr_x < end_x)
+		{
+			curr_x++;
+		}
+		if(curr_x > end_x)
+		{
+			curr_x--;
+		}
+		if(curr_y < end_y)
+		{
+			curr_y++;
+		}
+		if(curr_y < end_y)
+		{
+			curr_y--;
+		}
+	}
+}
+
 // Checks a ship's start and end locations against the game grid
 function isValidLocation(start_x, start_y, end_x, end_y)
 {
