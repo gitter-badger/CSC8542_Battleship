@@ -178,7 +178,7 @@
 				<h3>Your Grid</h3>
 			</div>
 			
-				<ul id="PlayerShips"></ul>
+			<ul id="PlayerShips"></ul>
 			
 			<div class="row show-grid">
 				<div class="col-xs-1 square"></div>
@@ -373,10 +373,27 @@
 				
 				x = ship.pos_x
 				y = ship.pos_y
+				gridSquare = $('#PlayerGrid > #'+y+' > #'+x)
 				// Color the squares of the ship
 				for(shipSection = 0; shipSection < ship.length; shipSection++)
 				{
-					
+					gridSquare.css('background-color','#000000')
+					switch(ship.direction)
+					{
+						case "up":
+							y--;
+							break;
+						case "down":
+							y++;
+							break;
+						case "left":
+							x--;
+							break;
+						case "right":
+							x++;
+							break;
+					}
+					gridSquare = $('#PlayerGrid > #'+y+' > #'+x)
 				}
 			}
 		});
