@@ -45,19 +45,19 @@ function Ship(name,length){
 	_pos_y = Math.floor((Math.random() * 10) + 1);
 	
 	var possibleDirections = [];
-	if(!((_pos_x - length) < 0))
+	if(!((_pos_x - length) < 0) && isValidLocation(_pos_x,_pos_y,pos_x-length,_pos_y))
 	{
 		possibleDirections.push("left");
 	}
-	if(!((_pos_x + length) > 10))
+	if(!((_pos_x + length) > 10) && isValidLocation(_pos_x,_pos_y,pos_x+length,_pos_y))
 	{
 		possibleDirections.push("right");
 	}
-	if(!((_pos_y - length) < 0))
+	if(!((_pos_y - length) < 0) && isValidLocation(_pos_x,_pos_y,pos_x,_pos_y-length))
 	{
 		possibleDirections.push("up");
 	}
-	if(!((_pos_y + length) > 10))
+	if(!((_pos_y + length) > 10) && isValidLocation(_pos_x,_pos_y,pos_x,_pos_y+length))
 	{
 		possibleDirections.push("down");
 	}
@@ -85,6 +85,7 @@ function isValidLocation(start_x, start_y, end_x, end_y)
 			return false;
 		}
 		
+		// Change the grid location we are checking against
 		if(curr_x < end_x)
 		{
 			curr_x++;
@@ -102,6 +103,7 @@ function isValidLocation(start_x, start_y, end_x, end_y)
 			curr_y--;
 		}
 	}
+	return true;
 }
 
 module.exports = new gameGrid();
