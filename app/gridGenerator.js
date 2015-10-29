@@ -41,27 +41,31 @@ gameGrid.prototype.createGrid = function(){
 function Ship(name,length){
 	_name = name;
 	_length = length;
-	_pos_x = Math.floor((Math.random() * 10) + 1);
-	_pos_y = Math.floor((Math.random() * 10) + 1);
-	
 	var possibleDirections = [];
-	if(!((_pos_x - length) < 0) && isValidLocation(_pos_x,_pos_y,_pos_x-length,_pos_y))
-	{
-		possibleDirections.push({dir:"left",end_x:_pos_x-length,end_y:_pos_y});
-	}
-	if(!((_pos_x + length) > 10) && isValidLocation(_pos_x,_pos_y,_pos_x+length,_pos_y))
-	{
-		possibleDirections.push({dir:"right",end_x:_pos_x+length,end_y:_pos_y});
-	}
-	if(!((_pos_y - length) < 0) && isValidLocation(_pos_x,_pos_y,_pos_x,_pos_y-length))
-	{
-		possibleDirections.push({dir:"up",end_x:_pos_x,end_y:_pos_y-length});
-	}
-	if(!((_pos_y + length) > 10) && isValidLocation(_pos_x,_pos_y,_pos_x,_pos_y+length))
-	{
-		possibleDirections.push({dir:"down",end_x:_pos_x,end_y:_pos_y+length});
-	}
 	
+	// Keep generating positions until we find one that doesn't go off the map or intersect with another ship
+	while(possibleDirections.length == 0)
+	{
+		_pos_x = Math.floor((Math.random() * 10) + 1);
+		_pos_y = Math.floor((Math.random() * 10) + 1);
+		
+		if(!((_pos_x - length) < 0) && isValidLocation(_pos_x,_pos_y,_pos_x-length,_pos_y))
+		{
+			possibleDirections.push({dir:"left",end_x:_pos_x-length,end_y:_pos_y});
+		}
+		if(!((_pos_x + length) > 10) && isValidLocation(_pos_x,_pos_y,_pos_x+length,_pos_y))
+		{
+			possibleDirections.push({dir:"right",end_x:_pos_x+length,end_y:_pos_y});
+		}
+		if(!((_pos_y - length) < 0) && isValidLocation(_pos_x,_pos_y,_pos_x,_pos_y-length))
+		{
+			possibleDirections.push({dir:"up",end_x:_pos_x,end_y:_pos_y-length});
+		}
+		if(!((_pos_y + length) > 10) && isValidLocation(_pos_x,_pos_y,_pos_x,_pos_y+length))
+		{
+			possibleDirections.push({dir:"down",end_x:_pos_x,end_y:_pos_y+length});
+		}
+	}
 	_direction = possibleDirections[Math.floor(Math.random()*possibleDirections.length)];
 	
 	console.log(_name+": length: "+_length+" ("+_pos_x+","+_pos_y+"), "+_direction.dir);
@@ -71,7 +75,7 @@ function Ship(name,length){
 			length:_length,
 			pos_x:_pos_x,
 			pos_y:_pos_y,
-			direction:_direction};
+			direction:_direction.dir};
 }
 
 // Fill a ship's location in the shipGrid
