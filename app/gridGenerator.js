@@ -84,6 +84,23 @@ function isValidLocation(start_x, start_y, end_x, end_y)
 		{
 			return false;
 		}
+		
+		if(curr_x < end_x)
+		{
+			curr_x++;
+		}
+		if(curr_x > end_x)
+		{
+			curr_x--;
+		}
+		if(curr_y < end_y)
+		{
+			curr_y++;
+		}
+		if(curr_y < end_y)
+		{
+			curr_y--;
+		}
 	}
 }
 
