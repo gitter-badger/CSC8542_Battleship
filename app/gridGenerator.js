@@ -74,13 +74,16 @@ function Ship(name,length){
 }
 
 // Checks a ship's start and end locations against the game grid
-function validateLocation(start_x, start_y, end_x, end_y)
+function isValidLocation(start_x, start_y, end_x, end_y)
 {
 	curr_x = start_x;
 	curr_y = start_y;
 	while(curr_x != end_x && curr_y != end_y)
 	{
-		
+		if(shipPositions[curr_x][curr_y]==true)
+		{
+			return false;
+		}
 	}
 }
 
