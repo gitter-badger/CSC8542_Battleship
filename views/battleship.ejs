@@ -358,6 +358,10 @@
 		var opponentGrid =<%-JSON.stringify(opponent)%>;
 		var playerGrid =<%-JSON.stringify(player)%>;
 		
+		$('.gamesquare').click(function(){
+			console.log("click");
+		});
+		
 		$( document ).ready(function() {
 			// Show the opponent's ship names
 			for(i = 0; i < opponentGrid.shiplist.length; i++)
