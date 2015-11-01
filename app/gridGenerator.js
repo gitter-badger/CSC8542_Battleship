@@ -21,17 +21,17 @@ gameGrid.prototype.createGrid = function(){
 	  }
 	}
 	
-	//_aircraft_carrier = Ship("Aircraft Carrier",5);
-	//_battleship = Ship("Battleship",4);
-	//_cruiser = Ship("Cruiser",3);
+	_aircraft_carrier = Ship("Aircraft Carrier",5);
+	_battleship = Ship("Battleship",4);
+	_cruiser = Ship("Cruiser",3);
 	_submarine = Ship("Submarine",3);
 	_patrol_boat = Ship("Patrol Boat",2);
 	
 	var result = {
 			shiplist: [
-				//_aircraft_carrier,
-				//_battleship,
-				//_cruiser,
+				_aircraft_carrier,
+				_battleship,
+				_cruiser,
 				_submarine,
 				_patrol_boat
 			]
@@ -119,7 +119,6 @@ function isValidLocation(start_x, start_y, end_x, end_y)
 	{
 		if(shipPositions[curr_x][curr_y]==true)
 		{
-			console.log("returning false");
 			return false;
 		}
 		
