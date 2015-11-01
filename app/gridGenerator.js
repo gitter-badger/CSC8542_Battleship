@@ -11,11 +11,12 @@ var shipPositions;
 gameGrid.prototype.createGrid = function(){
 	console.log('Creating Grid');
 	
-	shipPositions = new Array(10);
-	for (var x = 0; x < 10; x++) 
+	console.log("Regenerating ship array");
+	shipPositions = new Array(11);
+	for (var x = 0; x < 11; x++) 
 	{
-	  shipPositions[x] = new Array(10);
-	  for (var y = 0; y < 10; y++)
+	  shipPositions[x] = new Array(11);
+	  for (var y = 0; y < 11; y++)
 	  {
 		  shipPositions[x][y] = false;
 	  }
