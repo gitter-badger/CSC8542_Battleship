@@ -359,7 +359,11 @@
 		var playerGrid =<%-JSON.stringify(player)%>;
 		
 		$('.gamesquare').click(function(){
-			console.log("click");
+			var y = $(this).attr("id");
+			var x = $(this).parent().attr("id");
+			var gridName = $(this).parent().parent().attr("id");
+			
+			console.log("Clicked "+x+","+y+" on grid "+gridName);
 		});
 		
 		$( document ).ready(function() {
