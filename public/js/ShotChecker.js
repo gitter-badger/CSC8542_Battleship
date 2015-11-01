@@ -15,6 +15,22 @@ function CheckForHit(shot_x, shot_y, ship_list)
 				return true;
 			}
 			
+			if(ship.direction == "up")
+			{
+				ship_pos_y--;
+			}
+			if(ship.direction == "down")
+			{
+				ship_pos_y++;
+			}
+			if(ship.direction == "left")
+			{
+				ship_pos_x--;
+			}
+			if(ship.direction == "right")
+			{
+				ship_pos_x++;
+			}
 		}
 	}
 	
