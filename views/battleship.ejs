@@ -360,18 +360,18 @@
 		var playerGrid =<%-JSON.stringify(player)%>;
 		
 		$('.gamesquare').click(function(){
-			var y = $(this).attr("id");
-			var x = $(this).parent().attr("id");
+			var x = $(this).attr("id");
+			var y = $(this).parent().attr("id");
 			var gridName = $(this).parent().parent().attr("id");
 			var grid;
 			
 			if(gridName == "PlayerGrid")
 			{
-				grid = playerGrid.shipList;
+				grid = playerGrid.shiplist;
 			}
 			else
 			{
-				grid = opponentGrid.shipList;
+				grid = opponentGrid.shiplist;
 			}
 			CheckForHit(x,y,grid);
 		});
